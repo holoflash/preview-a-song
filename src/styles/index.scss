@@ -1,0 +1,39 @@
+@use 'styles';
+
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    color: styles.$color5;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: styles.$color1;
+}
+
+h1 {
+    color: styles.$color4;
+}
+.search-button {
+    background-color: styles.$color2;
+}
+
+input {
+    height: 5vh;
+    width: fit-content;
+    color: styles.$color5;
+    background-color: styles.$color4;
+}
+
+.App {
+    @include styles.flex-column-space-between();
+    height: 100vh;
+}
+
+h2 {
+    color: styles.$color3;
+}
