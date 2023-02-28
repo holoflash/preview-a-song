@@ -1,5 +1,5 @@
 @use 'globals';
 
 .results {
-    @include globals.grid();
+    outline: solid black 1px;
 }
