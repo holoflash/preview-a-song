@@ -17,9 +17,8 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {result.length === 0 && <NoSong term={term} />}
+            {result.length === 0 && <NoSong term={term} /> && term}
             <MyForm onResultUpdate={handleResultUpdate} />
-
             {result.length > 0 && <ResultList songs={result} />}
             <Footer />
         </div>
