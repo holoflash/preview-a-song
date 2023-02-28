@@ -1,0 +1,5 @@
+@use 'globals';
+
+.results {
+    @include globals.grid();
+}

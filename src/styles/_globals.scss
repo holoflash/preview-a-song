@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+@mixin grid() {
+    display: grid;
+    grid-auto-flow: column;
+    width: fit-content;
+    margin: 20px;
+    padding: 200px;
+}
+
 $primary-color: rgb(114, 80, 114);
 $color1: #c19ab7;
 $color2: #9c95dc;

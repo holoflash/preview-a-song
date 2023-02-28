@@ -1,58 +1,25 @@
-import React, { useState } from 'react';
-import { search } from './search';
-
-function Header() {
-    return (
-        <header>
-            <h1>Is this song title taken?</h1>
-        </header>
-    );
-}
-
-function Footer() {
-    return (
-        <footer>
-            <h2>@HOLOFLASH</h2>
-        </footer>
-    );
-}
-
-interface MyFormProps {
-    onResultUpdate: (result: string) => void;
-}
-
-function MyForm({ onResultUpdate }: MyFormProps) {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        search(event.currentTarget.username.value).then((response) => {
-            if (response !== undefined) {
-                onResultUpdate(response);
-            }
-        });
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                <input type="search" name="username" />
-            </label>
-            <input className="search-button" type="submit" />
-        </form>
-    );
-}
+import { useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import MyForm from './components/MyForm';
+import ResultList from './components/ResultList';
+import Song from './types/songs';
+import NoSong from './components/NoSong';
 
 function App() {
-    const [result, setResult] = useState('');
-
-    const handleResultUpdate = (newResult: string) => {
+    const [result, setResult] = useState<Song[]>([]);
+    const [term, setTerm] = useState('');
+    const handleResultUpdate = (newResult: Song[], term: string) => {
         setResult(newResult);
+        setTerm(term);
     };
 
     return (
         <div className="App">
             <Header />
             <MyForm onResultUpdate={handleResultUpdate} />
-            {result && <div className="result">{result}</div>}
+            {result.length > 0 && <ResultList songs={result} />}
+            {result.length === 0 && <NoSong term={term} />}
             <Footer />
         </div>
     );
