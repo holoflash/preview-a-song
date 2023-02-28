@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../styles/Form.module.scss';
 
 interface FormProps {
     onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -7,11 +6,16 @@ interface FormProps {
 
 function Form({ onSubmit }: FormProps) {
     return (
-        <form className={styles.form} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
             <label>
-                <input className="search-bar" type="search" name="username" />
+                <input
+                    className="search-bar"
+                    type="text"
+                    name="username"
+                    placeholder="Enter a song title"
+                />
             </label>
-            <input className="search-button" type="submit" />
+            <input className="search-button" type="submit" value="SEARCH" />
         </form>
     );
 }

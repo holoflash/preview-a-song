@@ -8,9 +8,9 @@ export async function searchSongs(term: string): Promise<Song[]> {
     const results = data.results.map((result: any) => ({
         artistName: result.artistName,
         trackName: result.trackName,
-        collectionName: result.collectionName,
         artworkUrl100: result.artworkUrl100,
         trackId: result.trackId,
+        previewUrl: result.previewUrl
     }));
     return results;
 }

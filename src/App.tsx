@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Header from './components/Header';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import MyForm from './components/MyForm';
 import ResultList from './components/ResultList';
 import Song from './types/songs';
@@ -17,9 +17,10 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <MyForm onResultUpdate={handleResultUpdate} />
-            {result.length > 0 && <ResultList songs={result} />}
             {result.length === 0 && <NoSong term={term} />}
+            <MyForm onResultUpdate={handleResultUpdate} />
+
+            {result.length > 0 && <ResultList songs={result} />}
             <Footer />
         </div>
     );
