@@ -37,15 +37,20 @@ function ResultList({ songs }: ResultListProps) {
     return (
         <>
             <audio ref={audioRef} />
-            {isPlaying && currentSong !== null && (
+            {isPlaying && currentSong !== null ? (
                 <a
                     href={currentSong.trackViewUrl}
                     title="View track on Apple Music"
+                    target="_blank"
                 >
                     <div className="now-playing">
                         {`NOW PLAYING: "${currentSong.trackName}" by ${currentSong.artistName}`}
                     </div>
                 </a>
+            ) : (
+                <div className="now-playing-before">
+                    CLICK ON A SONG TO START LISTENING
+                </div>
             )}
             <ul className="results">
                 {songs.map((song) => (

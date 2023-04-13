@@ -1,6 +1,6 @@
 import React from 'react';
 import Song from '../types/songs';
-import { searchSongs } from '../utils/itunesApi';
+import { searchSongs } from '../services/itunesApi';
 import Form from './Form';
 
 interface MyFormProps {

@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root {
-    --background-main: #1e2126;
-    --background-sub: #00000075;
-    --main-font: #ffffff;
-}
+$background-main: #1e2126;
+$background-sub: #00000075;
+$main-font-color: #ffffff;
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -15,14 +13,9 @@ header {
     background-color: #000000;
     text-transform: uppercase;
     text-align: center;
-    letter-spacing: 1rem;
-    padding-block: 20px;
+    letter-spacing: 0.3rem;
+    padding: 10px;
     width: 100%;
-}
-@media only screen and (max-width: 1000px) {
-    header {
-        display: none;
-    }
 }
 
 body,
@@ -31,11 +24,10 @@ html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    color: var(--main-font);
-    background-color: var(--background-main);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    color: $main-font-color;
+    background-color: $background-main;
     overflow-x: hidden;
+    background-image: '/Apple_Music_logo.png';
 }
 
 .App {
@@ -49,6 +41,7 @@ html {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 10px;
+    max-width: 80vw;
 }
 
 .single-result {
@@ -57,9 +50,7 @@ html {
     padding: 5px;
     margin: 5px;
     align-items: center;
-
-    background-color: var(--background-sub);
-    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.138);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.138);
     border-radius: 2px;
 }
 
@@ -70,21 +61,21 @@ form {
     margin: 20px;
     border-radius: 3px;
     border: 1px solid #fff;
-    max-width: 90%;
     .search-bar {
-        width: 370px;
         padding: 10px 5px;
         color: #ccc;
         border: 0;
         background: transparent;
         border-radius: 3px 0 0 3px;
+        width: 200px;
     }
     .search-button {
         border: 0;
         padding: 0;
         cursor: pointer;
         height: 40px;
-        width: 120px;
+        width: 20vw;
+        max-width: 100px;
         color: #fff;
         background: transparent;
         border-left: 1px solid #fff;
@@ -104,7 +95,8 @@ form {
     animation: 1s ease-in-out headShake;
 }
 
-.now-playing {
+.now-playing,
+.now-playing-before {
     background-color: #1e2126;
     padding: 10px;
     position: sticky;
@@ -114,8 +106,11 @@ form {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
-    animation: pulse 2s ease-in-out infinite;
     width: 90%;
+}
+
+.now-playing {
+    animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -123,19 +118,11 @@ form {
         transform: scale3d(1, 1, 1);
     }
     50% {
-        transform: scale3d(1.01, 1.02, 2);
+        transform: scale3d(1.03, 1.03, 2);
     }
     to {
         transform: scale3d(1, 1, 1);
     }
-}
-
-.artist,
-.title {
-    display: none;
-    text-align: center;
-    margin: 10px;
-    color: #b1b1b1;
 }
 
 img {
