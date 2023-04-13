@@ -1,6 +1,6 @@
 {
-  "name": "spotify-advanced-search",
-  "private": true,
+  "name": "preview-a-song",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {

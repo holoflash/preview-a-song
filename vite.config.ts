@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/is-this-song-title-taken/',
+  base: '/preview-a-song/',
   plugins: [react()],
 })

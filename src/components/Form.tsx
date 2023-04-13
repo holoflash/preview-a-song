@@ -13,6 +13,7 @@ function Form({ onSubmit }: FormProps) {
                     type="text"
                     name="username"
                     placeholder="Enter a song title"
+                    autoComplete="off"
                 />
             </label>
             <input className="search-button" type="submit" value="SEARCH" />

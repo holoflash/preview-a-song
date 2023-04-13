@@ -1,5 +1,5 @@
 import Song from '../types/songs';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface ResultListProps {
     songs: Song[];
@@ -23,21 +23,39 @@ function ResultList({ songs }: ResultListProps) {
             audio?.play();
         }
     }
+    useEffect(() => {
+        const audio = audioRef.current;
+        function handleEnded() {
+            setIsPlaying(false);
+        }
+        audio?.addEventListener('ended', handleEnded);
+        return () => {
+            audio?.removeEventListener('ended', handleEnded);
+        };
+    }, []);
 
     return (
         <>
             <audio ref={audioRef} />
+            {isPlaying && currentSong !== null && (
+                <a
+                    href={currentSong.trackViewUrl}
+                    title="View track on Apple Music"
+                >
+                    <div className="now-playing">
+                        {`NOW PLAYING: "${currentSong.trackName}" by ${currentSong.artistName}`}
+                    </div>
+                </a>
+            )}
             <ul className="results">
                 {songs.map((song) => (
                     <li key={song.trackId}>
                         <div className="single-result">
-                            <p className="title">"{song.trackName}"</p>
                             <img
                                 src={song.artworkUrl100}
                                 alt={song.trackName}
                                 onClick={() => handlePlay(song)}
                             />
-                            <p className="artist">{song.artistName}</p>
                         </div>
                     </li>
                 ))}

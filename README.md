@@ -1,6 +1,6 @@
-# Is this song title taken?
+# PREVIEW-A-SONG
 
-A simple app that allows you to check if a song title is available. It uses the iTunes API to search for songs and returns a list of unique results - if there are any with the <em>exact</em> title.
+A simple app that allows you to listen to a 30s preview of any song that exists on iTunes. It uses the iTunes API to search for songs and returns a list of unique results - if there are any with the <em>exact</em> title.
 
 This project was developed while learning React, TypeScript and Sass. Built with Vite.
 

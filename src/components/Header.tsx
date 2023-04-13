@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1>Is this song title taken?</h1>
+            <h1>PREVIEW-A-SONG</h1>
         </header>
     );
 }

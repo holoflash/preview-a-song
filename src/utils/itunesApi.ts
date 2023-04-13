@@ -10,7 +10,8 @@ export async function searchSongs(term: string): Promise<Song[]> {
         trackName: result.trackName,
         artworkUrl100: result.artworkUrl100,
         trackId: result.trackId,
-        previewUrl: result.previewUrl
+        previewUrl: result.previewUrl,
+        trackViewUrl: result.trackViewUrl
     }));
     return results;
 }
