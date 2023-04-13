@@ -39,11 +39,12 @@ function ResultList({ songs }: ResultListProps) {
             <audio ref={audioRef} />
             {isPlaying && currentSong !== null ? (
                 <a
+                    className="now-playing"
                     href={currentSong.trackViewUrl}
                     title="View track on Apple Music"
                     target="_blank"
                 >
-                    <div className="now-playing">
+                    <div>
                         {`NOW PLAYING: "${currentSong.trackName}" by ${currentSong.artistName}`}
                     </div>
                 </a>

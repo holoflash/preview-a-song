@@ -8,6 +8,15 @@ $main-font-color: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
 
+ul {
+    all: unset;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 header {
     top: 0;
     background-color: #000000;
@@ -27,7 +36,6 @@ html {
     color: $main-font-color;
     background-color: $background-main;
     overflow-x: hidden;
-    background-image: '/Apple_Music_logo.png';
 }
 
 .App {
@@ -35,12 +43,13 @@ html {
     flex-direction: column;
     align-items: center;
 }
+
 .results {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 10px;
+    margin: 20px;
     max-width: 80vw;
 }
 
@@ -58,7 +67,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
+    margin: 30px;
     border-radius: 3px;
     border: 1px solid #fff;
     .search-bar {
@@ -89,15 +98,10 @@ form {
     }
 }
 
-.no-song-message {
-    text-align: center;
-    margin-bottom: 0;
-    animation: 1s ease-in-out headShake;
-}
-
+.no-song-message,
 .now-playing,
 .now-playing-before {
-    background-color: #1e2126;
+    background-color: #1e2126e4;
     padding: 10px;
     position: sticky;
     top: 0;
@@ -118,7 +122,7 @@ form {
         transform: scale3d(1, 1, 1);
     }
     50% {
-        transform: scale3d(1.03, 1.03, 2);
+        transform: scale3d(1.02, 1.02, 2);
     }
     to {
         transform: scale3d(1, 1, 1);
@@ -134,13 +138,4 @@ img {
 }
 img:hover {
     outline: solid rgb(161, 232, 255) 1px;
-}
-
-ul {
-    all: unset;
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
 }
