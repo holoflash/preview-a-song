@@ -13,22 +13,18 @@ function MyForm({ onResultUpdate }: MyFormProps) {
         const term = event.currentTarget.username.value;
         try {
             const results = await searchSongs(term);
-            const uniqueArtists = new Set<string>();
-            const uniqueResults: Song[] = [];
+            const filteredResults: Song[] = [];
+            const uniqueSongs = new Set<string>();
             for (const song of results) {
-                if (!uniqueArtists.has(song.artistName.toLowerCase())) {
-                    uniqueArtists.add(song.artistName.toLowerCase());
-                    uniqueResults.push(song);
+                const key =
+                    song.trackName.toLowerCase() +
+                    song.artistName.toLowerCase();
+                if (!uniqueSongs.has(key)) {
+                    uniqueSongs.add(key);
+                    filteredResults.push(song);
                 }
             }
-
-            onResultUpdate(
-                uniqueResults.filter(
-                    (song: Song) =>
-                        song.trackName.toLowerCase() === term.toLowerCase()
-                ),
-                term
-            );
+            onResultUpdate(filteredResults, term);
         } catch (error) {
             console.error(error);
         }
